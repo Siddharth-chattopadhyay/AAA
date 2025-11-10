@@ -4,12 +4,35 @@
         <link rel="stylesheet", href="style.css">
     </head>
     <body>
-        <button id="playstate">
-            Pause
-        </button>
+        <div class="btn-group">
+            <div class="controls">
+                <button id="prev" class="btn">Previous</button>
+                <button id="playstate" class="btn">
+                    Auto Play
+                </button>
+        
+                <button id="next" class="btn">Next</button>
+            </div>
+            <button id="sup" class="btn">Show Upload</button>
+        </div>
         <div id="carousel">
             <img>
-            <span id="caption">Bird</span>
+            <div id="textfield">
+                <p id="caption">Bird</p>
+                <p id="error"></p>
+            </div>
+        </div>
+
+        <div id="newimageform">
+            <div class="formtop">
+                <button class="close" id="uploadClose">X</button>
+            </div>
+            <div class="header">
+                Upload Your Image
+            </div>
+            <input id="path" class="iup" placeholder="Image path">
+            <input id="uploadcaption" class="iup" placeholder="Captions">
+            <button id="upload">Upload</button>
         </div>
         <script src="script.js"></script>
     </body>
