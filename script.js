@@ -34,6 +34,7 @@ let index = 0;
 
 showUpload.addEventListener("click", () => {
     uploadBox.style.display = "flex";
+    console.log("Showing Upload image dialog");
 });
 
 finalUploadBtn.addEventListener("click", () => {
@@ -41,11 +42,13 @@ finalUploadBtn.addEventListener("click", () => {
     newPath.value = newCap.value = "";
     uploadBox.style.display = "none";
     setImageIndex(index);
+    console.log("Uploaded images and close the form");
 });
 
 
 hideUpload.addEventListener("click", () => {
     uploadBox.style.display = "none";
+    console.log("Closed the upload dialog box");
 });
 
 
@@ -55,6 +58,7 @@ function showSlide(img, caption) {
     imageObj.setAttribute("src", img);
     imageObj.setAttribute("alt", caption);
     imageCaption.innerHTML = caption;
+    console.log("Showing slide of " + caption);
 }
 
 playstatebtn.addEventListener("click", function(){
@@ -64,10 +68,12 @@ playstatebtn.addEventListener("click", function(){
     if (isPaused)
         playstatebtn.innerHTML = "Play";
     else
-        playstatebtn.innerHTML = "Pause"; 
+        playstatebtn.innerHTML = "Pause";
+    console.log(`Autoplay ${isPaused? "stopped" : "started"}`);
 });
 
 function setImageIndex(index){
+    console.log("Indexing to " + index);
     if (index < 0) {
         errorField.innerHTML = "This is the first slide";
         return 0;
@@ -102,6 +108,7 @@ function interval() {
 index = setImageIndex(index);
 
 next.addEventListener("click", function(){
+    console.log("Showing next");
     if (intervalHandle !== undefined){
         clearInterval(intervalHandle);
         intervalHandle = setInterval(interval, 1000 * 3);
@@ -110,6 +117,7 @@ next.addEventListener("click", function(){
 });
 
 prev.addEventListener("click", function(){
+    console.log("Showing previous");
     if (intervalHandle !== undefined){
         clearInterval(intervalHandle);
         intervalHandle = setInterval(interval, 1000 * 3);
